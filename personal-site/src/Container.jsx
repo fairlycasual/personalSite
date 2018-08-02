@@ -4,6 +4,28 @@ import Description from './Description.jsx';
 import Photo from './Photo.jsx';
 
 class Info extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      page: 0,
+    }
+    this.nextPage = this.nextPage.bind(this);
+    this.previousPage = this.previousPage.bind(this);
+
+  }
+
+  nextPage = () => {
+    let currentPage = this.state.page;
+    let newPage = currentPage + 1;
+    this.setState({page: newPage});
+  }
+
+  previousPage = () => {
+    let currentPage = this.state.page;
+    let newPage = currentPage - 1;
+    this.setState({page: newPage});
+  }
+
   render () {
     return (
       <div className="box">
@@ -36,10 +58,10 @@ class Info extends React.Component {
               </td>
             </tr>
           </table>
-          <Description />
+          <Description currentPage={this.state.page} nextPage={this.nextPage} previousPage={this.previousPage}/>
         </div>
         <div className="photo">
-          <Photo />
+          <Photo currentPhoto={this.state.page}/>
         </div>
       </div>
     );

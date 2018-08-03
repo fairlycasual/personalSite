@@ -2,6 +2,7 @@
 
 html,body {
   background-color: #F5F5F5;
+  
 }
 
 a {
@@ -11,7 +12,6 @@ a {
 
 .App {
   text-align: center;
-  background-color: #F5F5F5;
 }
 
 .App-logo {
@@ -73,20 +73,36 @@ a {
   left: 5px;
 }
 
+#entry {
+  background-color: darkgrey;
+  opacity: 50%;
+  color: black;
+}
+
 img {
   max-width: 100%;
   height: auto;
-  max-height: 140vh;
+  max-height: 135vh;
   background-size: contain;
+}
+
+#landing {
+  background-image: url(./img/skylineDouble.jpg);
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #photo-holder {
   width: 50%;
+  top: 5%;
+  bottom: 5%;
 }
 
 .photo {
   top: 5%;
-  bottom: 10%;
+  bottom: 5%;
   position: relative;
   right: -48%;
 }

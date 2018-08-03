@@ -1,29 +1,42 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Landing from './Landing.jsx';
 import Description from './Description.jsx';
 import Photo from './Photo.jsx';
 
-class Info extends React.Component {
+class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       page: 0,
+      landingHidden: false,
     }
     this.nextPage = this.nextPage.bind(this);
     this.previousPage = this.previousPage.bind(this);
+    this.toggleHidden = this.toggleHidden.bind(this);
 
+  }
+
+  toggleHidden () {
+    this.setState({
+      landingHidden: !this.state.Hidden
+    })
   }
 
   nextPage = () => {
     let currentPage = this.state.page;
-    let newPage = currentPage + 1;
-    this.setState({page: newPage});
+    if ( currentPage < 2 ) {
+      let newPage = currentPage + 1;
+      this.setState({page: newPage});
+    };
   }
 
   previousPage = () => {
     let currentPage = this.state.page;
-    let newPage = currentPage - 1;
-    this.setState({page: newPage});
+    if ( currentPage > 0 ) {
+      let newPage = currentPage - 1;
+      this.setState({page: newPage});
+    };
   }
 
   render () {
@@ -34,29 +47,31 @@ class Info extends React.Component {
         </div>
         <div id="description">
           <table >
-            <tr>
-              <td colSpan='2' >
-                <a href="https://www.github.com/fairlycasual">
-                  <div>
-                    GitHub <FontAwesomeIcon icon={['fab', 'github']} />
-                  </div>
-                 </a>
-              </td>
-              <td colSpan='2'>
-                <a href="https://linkedin.com/in/wph91">
-                  <div>
-                      LinkedIn <FontAwesomeIcon icon={['fab', 'linkedin']} />
-                  </div>
-                </a>
-              </td>
-              <td colSpan='2'>
-                <a href="https://docs.google.com/document/d/1GnRfgdXfp1opdutuVWvLRYdvcFepkHWDDV5IkI51UYo/edit?usp=sharing">
-                  <div>
-                     Resume <FontAwesomeIcon icon={['fab', 'file']} />
-                  </div>
-                </a>
-              </td>
-            </tr>
+            <tbody>
+              <tr>
+                <td colSpan='2' >
+                  <a href="https://www.github.com/fairlycasual">
+                    <div>
+                      GitHub <FontAwesomeIcon icon={['fab', 'github']} />
+                    </div>
+                  </a>
+                </td>
+                <td colSpan='2'>
+                  <a href="https://linkedin.com/in/wph91">
+                    <div>
+                        LinkedIn <FontAwesomeIcon icon={['fab', 'linkedin']} />
+                    </div>
+                  </a>
+                </td>
+                <td colSpan='2'>
+                  <a href="https://docs.google.com/document/d/1GnRfgdXfp1opdutuVWvLRYdvcFepkHWDDV5IkI51UYo/edit?usp=sharing">
+                    <div>
+                      Resume <FontAwesomeIcon icon={['fab', 'file']} />
+                    </div>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
           </table>
           <Description currentPage={this.state.page} nextPage={this.nextPage} previousPage={this.previousPage}/>
         </div>
@@ -68,4 +83,4 @@ class Info extends React.Component {
   }
 }
 
-export default Info;
+export default Home;

@@ -1,21 +1,16 @@
 import React, { Component } from 'react';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faFile } from '@fortawesome/free-solid-svg-icons'
-import './App.css';
-
-//import LandingPage from './Landing.jsx';
-import Home from './Container.jsx';
-library.add(fab, faFile)
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
-      <div className="App">
-        <Home />
-      </div>
-    );
+      <div>Hello React!</div>
+    )
   }
+
 }
 
 export default App;
